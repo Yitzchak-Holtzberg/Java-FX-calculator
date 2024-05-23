@@ -1,0 +1,58 @@
+.root {
+    -fx-background-color: #F5F5F5; /* Light grey background */
+    -fx-font-family: 'Helvetica Neue', Arial, sans-serif; /* Sleek, modern font */
+}
+
+.text-field {
+    -fx-control-inner-background: #E0E0E0; /* Slightly darker grey */
+    -fx-text-fill: #212121; /* Almost black for contrast */
+    -fx-font-size: 16pt;
+    -fx-font-weight: bold;
+    -fx-border-color: #BDBDBD; /* Medium grey border */
+    -fx-border-width: 2px;
+    -fx-border-radius: 5px;
+}
+
+.button {
+    -fx-background-color: #FFFFFF; /* Pure white for buttons */
+    -fx-text-fill: #757575; /* Medium-dark grey for text */
+    -fx-font-size: 14pt;
+    -fx-border-color: #BDBDBD; /* Medium grey */
+    -fx-border-width: 1px;
+    -fx-border-radius: 5px;
+    -fx-effect: innershadow(three-pass-box, rgba(0,0,0,0.1), 5, 0.0, 2, 2);
+}
+
+.button:hover {
+    -fx-background-color: #EEEEEE; /* Very light grey */
+}
+
+.button:pressed {
+    -fx-background-color: #BDBDBD; /* Medium grey */
+    -fx-text-fill: #FFFFFF; /* White text */
+}
+
+.button-clear, .button-equal {
+    -fx-background-color: #616161; /* Dark grey */
+    -fx-text-fill: #FFFFFF; /* White text */
+    -fx-font-weight: bold;
+}
+
+.button-clear:hover, .button-equal:hover {
+    -fx-background-color: #424242; /* Darker grey */
+}
+
+.button-clear:pressed, .button-equal:pressed {
+    -fx-background-color: #212121; /* Almost black */
+}
+
+.display {
+    -fx-background-color: #BDBDBD; /* Medium grey */
+    -fx-text-fill: #FFFFFF; /* White text */
+    -fx-alignment: center-right;
+    -fx-font-size: 18pt;
+    -fx-padding: 10px;
+    -fx-border-color: #9E9E9E; /* Slightly darker grey border */
+    -fx-border-width: 2px;
+    -fx-border-radius: 5px;
+}
