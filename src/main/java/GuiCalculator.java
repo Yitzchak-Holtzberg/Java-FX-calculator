@@ -8,7 +8,7 @@ import javafx.stage.Stage;
 public class GuiCalculator extends Application {
 
     private TextField display;
-    Evaluate evaluator;
+    ArithmeticEvaluator evaluator;
 
     @Override
     public void start(Stage primaryStage) {
@@ -28,7 +28,7 @@ public class GuiCalculator extends Application {
                 "7", "8", "9", "/", "C",
                 "4", "5", "6", "*", "^",
                 "1", "2", "3", "-", ")",
-                "0", "=", "+", " ", "("
+                "0", "+", "=", " (", ""
         };
 
 
@@ -37,10 +37,22 @@ public class GuiCalculator extends Application {
         int labelIndex = 0;
         for (int i = 1; i < 5; i++) {
             for (int j = 0; j < 5; j++) {
-                Button btn = new Button(buttonLabels[labelIndex]);
-                btn.setMinSize(50, 50);
-                btn.setOnAction(e -> buttonPressed(btn.getText()));
-                grid.add(btn, j, i);
+                // Check if the current button is the "=" button
+                if (buttonLabels[labelIndex].equals("=")) {
+                    Button btn = new Button(buttonLabels[labelIndex]);
+                    btn.setMinSize(100, 50);
+                    btn.setOnAction(e -> buttonPressed(btn.getText()));
+                    // Add the button with a column span of 2
+                    grid.add(btn, j, i, 2, 1);
+                    j++; // Increment j extra to account for the extra column taken by the "=" button
+                } else {
+                    Button btn = new Button(buttonLabels[labelIndex]);
+                    btn.setMinSize(50, 50);
+                    btn.setOnAction(e -> buttonPressed(btn.getText()));
+                    // Add the button normally
+                    grid.add(btn, j, i);
+                }
+
                 labelIndex++;
             }
         }
@@ -83,10 +95,10 @@ public class GuiCalculator extends Application {
     }
 
     private void buttonPressed(String label) {
-        evaluator = new Evaluate(display.getText());
+        evaluator = new ArithmeticEvaluator(display.getText());
         if (label.equals("=")) {
             try {
-                display.setText(evaluator.eval() + " ");
+                display.setText(evaluator.evaluate() + " ");
             } catch (Exception e) {
                 display.setText("Error");
             }
